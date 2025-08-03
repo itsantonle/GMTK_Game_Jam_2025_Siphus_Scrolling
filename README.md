@@ -13,16 +13,20 @@
 
 
 ---
+<img src="https://img.itch.zone/aW1nLzIyNDkwNDIyLmdpZg==/original/kLu0JS.gif" /><img src="https://img.itch.zone/aW1nLzIyNDkwNDIyLmdpZg==/original/kLu0JS.gif" />
+<img src="https://img.itch.zone/aW1nLzIyNDkwNDIyLmdpZg==/original/kLu0JS.gif" />
+
 
 ##  About Siphus Rolling
+
 The theme this year was **Loop!**
 A A stubborn push.  Push, stumble, and strain against the weight of your world—where every effort reveals a piece of your character’s story. With dynamic UI, expressive animations, and a hauntingly subtle soundscape, this short experience invites players to feel each moment of resilience.
 
-​This was released for the GMTK Game Jam but is still a pretty much long work in progress ​. Nevertheless, being able to do much art for this game and coding some was a great experience 
+​This was released for the GMTK Game Jam but is still a pretty much long work in progress ​. Nevertheless, being able to do much art for this game and coding some was a great experience. The game was made in more or less 2 days where the art and the code for the game was pushed so it was highly stressful but I'm glad it pushed through.
 
 <img width="532" height="601" alt="image" src="https://github.com/user-attachments/assets/8d9e475d-4803-474a-a566-c3a1cb38da7b" />
 
-
+---
 
 
 
