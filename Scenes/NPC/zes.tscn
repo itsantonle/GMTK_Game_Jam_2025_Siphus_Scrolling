@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfvo1ji2b8qrv"]
+
+[ext_resource type="PackedScene" uid="uid://bqtlbcy6qq3fb" path="res://Scenes/NPC/Hand.tscn" id="1_in3qo"]
+[ext_resource type="Script" uid="uid://dynosqyjpww71" path="res://Scenes/NPC/Zes.gd" id="1_jjqwa"]
+[ext_resource type="Texture2D" uid="uid://be52mp1667y8a" path="res://assets/sprites/zessprite.png" id="1_ueeqp"]
+[ext_resource type="FontFile" uid="uid://c4x8ylq6vs28a" path="res://assets/font/YesevaOne-Regular.ttf" id="4_3hvke"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tb1c6"]
+font = ExtResource("4_3hvke")
+font_size = 100
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 15
+shadow_color = Color(0, 0, 0, 0.552941)
+shadow_offset = Vector2(4, 4)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jjqwa"]
+radius = 129.0
+height = 1960.0
+
+[node name="Zeus" type="Area2D"]
+script = ExtResource("1_jjqwa")
+
+[node name="Hand" parent="." instance=ExtResource("1_in3qo")]
+position = Vector2(298, 516)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_ueeqp")
+centered = false
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -206.0
+offset_top = 41.0
+offset_right = -70.0
+offset_bottom = 157.0
+text = "(E)"
+label_settings = SubResource("LabelSettings_tb1c6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Interactable" type="CollisionShape2D" parent="."]
+position = Vector2(-373, 2)
+shape = SubResource("CapsuleShape2D_jjqwa")
+
+[node name="ThoughtMarker" type="Marker2D" parent="."]
+position = Vector2(-180, 424)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

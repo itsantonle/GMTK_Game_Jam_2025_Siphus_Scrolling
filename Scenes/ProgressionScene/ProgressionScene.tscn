@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://g6w085tac6xe"]
+
+[ext_resource type="Texture2D" uid="uid://c7w2nyb0vdhit" path="res://assets/images/progression/progression_screen.jpg" id="1_bggev"]
+
+[node name="ProgressionScene" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_bggev")
+centered = false

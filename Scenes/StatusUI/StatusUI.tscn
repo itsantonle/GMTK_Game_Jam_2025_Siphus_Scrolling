@@ -1,0 +1,81 @@
+[gd_scene load_steps=7 format=3 uid="uid://c2iogabdostom"]
+
+[ext_resource type="FontFile" uid="uid://c4x8ylq6vs28a" path="res://assets/font/YesevaOne-Regular.ttf" id="1_cxt1y"]
+[ext_resource type="Script" uid="uid://d1juys30vn3nu" path="res://Scenes/StatusUI/StatusUi.gd" id="1_l1hqb"]
+[ext_resource type="PackedScene" uid="uid://bpdi7oh5fxkmb" path="res://Scenes/ChargeBar/ChargeBar.tscn" id="2_wkhsl"]
+[ext_resource type="Script" uid="uid://c7w5ybhkxsw7h" path="res://Scenes/ChargeBar/ChargeBar.gd" id="3_n44fu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wkhsl"]
+font = ExtResource("1_cxt1y")
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.552941)
+
+[sub_resource type="LabelSettings" id="LabelSettings_n44fu"]
+font = ExtResource("1_cxt1y")
+font_size = 17
+font_color = Color(0.194349, 0.194349, 0.194349, 1)
+shadow_color = Color(0, 0, 0, 0.552941)
+
+[node name="Status" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l1hqb")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 40
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Willpower"
+label_settings = SubResource("LabelSettings_wkhsl")
+
+[node name="Motivation" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Motivation"
+label_settings = SubResource("LabelSettings_wkhsl")
+
+[node name="ChargeBar" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("3_n44fu")
+metadata/_custom_type_script = "uid://c7w5ybhkxsw7h"
+
+[node name="Label3" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Willower force exerted to push the rock
+The lower the motivation the harder it'll be to push the rock
+"
+label_settings = SubResource("LabelSettings_n44fu")
+autowrap_mode = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 45
+
+[node name="WilChargeBar" parent="MarginContainer/HBoxContainer/VBoxContainer2" instance=ExtResource("2_wkhsl")]
+layout_mode = 2
+
+[node name="Motivation" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "00000%"
+label_settings = SubResource("LabelSettings_wkhsl")

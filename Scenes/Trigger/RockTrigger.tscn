@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cg0hr445o5mfx"]
+
+[ext_resource type="PackedScene" uid="uid://c4hgg12oo44i1" path="res://Scenes/Trigger/Trigger.tscn" id="1_cs2ui"]
+[ext_resource type="Script" uid="uid://c05v7ceny7jgn" path="res://Scenes/Trigger/RockTrigger.gd" id="2_0e18o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0e18o"]
+size = Vector2(71, 945)
+
+[node name="RockTrigger" instance=ExtResource("1_cs2ui")]
+collision_layer = 16
+collision_mask = 3
+script = ExtResource("2_0e18o")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(36.5, 440.5)
+shape = SubResource("RectangleShape2D_0e18o")
+
+[node name="Timer" type="Timer" parent="." index="1"]
+wait_time = 4.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

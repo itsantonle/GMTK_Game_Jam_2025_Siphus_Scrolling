@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhcrf82hyervs"]
+
+[ext_resource type="Texture2D" uid="uid://b43oix7ncfpkg" path="res://assets/images/bglayer/white_back.png" id="1_cnwt5"]
+[ext_resource type="Texture2D" uid="uid://bxn6hl4dknorb" path="res://assets/images/bglayer/fog_grey.png" id="2_eq83l"]
+[ext_resource type="Texture2D" uid="uid://duisma8sq80eo" path="res://assets/images/bglayer/mountains.png" id="3_ih1n4"]
+
+[node name="ParallaxBG" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_cnwt5")
+centered = false
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+repeat_size = Vector2(1280, 900)
+autoscroll = Vector2(20, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+texture = ExtResource("2_eq83l")
+centered = false
+
+[node name="Parallax2D2" type="Parallax2D" parent="."]
+repeat_size = Vector2(1280, 900)
+autoscroll = Vector2(7, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D2"]
+texture = ExtResource("3_ih1n4")
+centered = false

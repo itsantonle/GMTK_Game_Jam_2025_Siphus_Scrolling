@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://d272ku2j86f8j"]
+
+[ext_resource type="PackedScene" uid="uid://c4hgg12oo44i1" path="res://Scenes/Trigger/Trigger.tscn" id="1_tk1i0"]
+[ext_resource type="Script" uid="uid://ovadlqjjpp8l" path="res://Scenes/Trigger/BallGameOverTrigger.gd" id="2_wftxo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wftxo"]
+size = Vector2(14, 970)
+
+[node name="BallGameOverTrigger" instance=ExtResource("1_tk1i0")]
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("2_wftxo")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(-3, 475)
+shape = SubResource("RectangleShape2D_wftxo")

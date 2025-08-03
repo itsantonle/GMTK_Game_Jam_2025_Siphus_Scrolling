@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpdi7oh5fxkmb"]
+
+[ext_resource type="Script" uid="uid://c7w5ybhkxsw7h" path="res://Scenes/ChargeBar/ChargeBar.gd" id="1_w4enl"]
+[ext_resource type="Texture2D" uid="uid://utsgqstowl88" path="res://assets/sprites/Progress.png" id="1_xfard"]
+
+[node name="ChargeBar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w4enl")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(1e-05, 0.3)
+texture = ExtResource("1_xfard")

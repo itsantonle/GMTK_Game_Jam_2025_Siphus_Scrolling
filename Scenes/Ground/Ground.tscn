@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://daebkmabgqb5o"]
+
+[ext_resource type="Texture2D" uid="uid://bnk7pxmq32vnu" path="res://assets/images/Background.png" id="1_esovo"]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_esovo")
+centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-18, 9)
+scale = Vector2(1.01879, 0.997297)
+polygon = PackedVector2Array(135.455, 893.415, 530.042, 711.924, 748.93, 596.612, 804.879, 588.591, 1276.03, 403.089, 1271.12, 894.417)

@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://ntx2w2srejv3"]
+
+[ext_resource type="PackedScene" uid="uid://c4hgg12oo44i1" path="res://Scenes/Trigger/Trigger.tscn" id="1_1lvub"]
+[ext_resource type="Script" uid="uid://bq06ikd4frx7k" path="res://Scenes/Trigger/SiphusActionTrigger.gd" id="2_x1jm5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p3oyf"]
+size = Vector2(144, 266)
+
+[node name="SiphusActionTrigger" instance=ExtResource("1_1lvub")]
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("2_x1jm5")
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(62, 0)
+shape = SubResource("RectangleShape2D_p3oyf")

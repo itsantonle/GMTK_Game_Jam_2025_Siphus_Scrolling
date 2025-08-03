@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvwbff2gep8io"]
+
+[ext_resource type="Script" uid="uid://hy7ku6unmaj1" path="res://Scenes/NPC/Npc.gd" id="1_nvvju"]
+[ext_resource type="LabelSettings" uid="uid://d4gldkw50pnr8" path="res://Resources/PromptWhite.tres" id="2_nvvju"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nvvju"]
+radius = 52.0
+height = 264.0
+
+[node name="NPC" type="Area2D"]
+collision_layer = 32
+script = ExtResource("1_nvvju")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -140)
+scale = Vector2(1.2, 1.2)
+autoplay = "default"
+
+[node name="Interactable" type="CollisionShape2D" parent="."]
+position = Vector2(-16, -119)
+shape = SubResource("CapsuleShape2D_nvvju")
+
+[node name="Exclaimation" type="Label" parent="."]
+visible = false
+offset_left = -51.0
+offset_top = -381.0
+offset_right = 31.0
+offset_bottom = -294.0
+text = "(E) "
+label_settings = ExtResource("2_nvvju")
+
+[node name="ThoughtMarker" type="Marker2D" parent="."]
+visible = false
+position = Vector2(-21, -364)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

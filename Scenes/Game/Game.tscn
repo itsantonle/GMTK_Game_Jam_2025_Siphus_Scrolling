@@ -1,0 +1,104 @@
+[gd_scene load_steps=17 format=3 uid="uid://b615pqp625y67"]
+
+[ext_resource type="Script" uid="uid://boh84lqqi60p8" path="res://Scenes/Game/Game.gd" id="1_3k6gv"]
+[ext_resource type="PackedScene" uid="uid://bhcrf82hyervs" path="res://Scenes/ParallaxBG/ParallaxBg.tscn" id="1_ln2h6"]
+[ext_resource type="PackedScene" uid="uid://bowdblwneojlc" path="res://Scenes/Boundary/PlayerBoundary.tscn" id="2_1q8bt"]
+[ext_resource type="PackedScene" uid="uid://d272ku2j86f8j" path="res://Scenes/Trigger/BallGameOverTrigger.tscn" id="2_10ki7"]
+[ext_resource type="PackedScene" uid="uid://xhyhmu4whyiv" path="res://Scenes/Rock/Rock.tscn" id="2_gwu2e"]
+[ext_resource type="PackedScene" uid="uid://daebkmabgqb5o" path="res://Scenes/Ground/Ground.tscn" id="2_y3kpf"]
+[ext_resource type="PackedScene" uid="uid://coi8evcnvivkp" path="res://Scenes/Syphus/Syphus.tscn" id="3_xbxml"]
+[ext_resource type="PackedScene" uid="uid://y2y1vftm6ck5" path="res://Scenes/Boundary/Boundary.tscn" id="4_ln2h6"]
+[ext_resource type="PackedScene" uid="uid://cg0hr445o5mfx" path="res://Scenes/Trigger/RockTrigger.tscn" id="8_gvja8"]
+[ext_resource type="PackedScene" uid="uid://qjhnyurxom2q" path="res://Scenes/Warning/Warning.tscn" id="9_m1o7v"]
+[ext_resource type="PackedScene" uid="uid://ckndqi2e5qhen" path="res://Scenes/GameOver/GameOver.tscn" id="10_3586x"]
+[ext_resource type="FontFile" uid="uid://c4x8ylq6vs28a" path="res://assets/font/YesevaOne-Regular.ttf" id="13_bsqcq"]
+[ext_resource type="PackedScene" uid="uid://c2iogabdostom" path="res://Scenes/StatusUI/StatusUI.tscn" id="13_edkrd"]
+[ext_resource type="PackedScene" uid="uid://g6w085tac6xe" path="res://Scenes/ProgressionScene/ProgressionScene.tscn" id="14_bsqcq"]
+[ext_resource type="AudioStream" uid="uid://bgax085buve1h" path="res://assets/Music/816687__pennywind__woman-humming-cathedral.wav" id="15_jf0ra"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jf0ra"]
+font = ExtResource("13_bsqcq")
+font_size = 20
+font_color = Color(0, 0, 0, 1)
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.552941)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_3k6gv")
+
+[node name="BallGameOverTrigger" parent="." instance=ExtResource("2_10ki7")]
+position = Vector2(-573, 0)
+
+[node name="PlayerBoundary" parent="." instance=ExtResource("2_1q8bt")]
+
+[node name="Boundary" parent="." instance=ExtResource("4_ln2h6")]
+
+[node name="ParallaxBG" parent="." instance=ExtResource("1_ln2h6")]
+
+[node name="NPCGroup" type="Node2D" parent="."]
+
+[node name="Ground" parent="." instance=ExtResource("2_y3kpf")]
+
+[node name="Rock" parent="." instance=ExtResource("2_gwu2e")]
+position = Vector2(334, 637)
+
+[node name="Syphus" parent="." instance=ExtResource("3_xbxml")]
+position = Vector2(172, 794)
+
+[node name="RockTrigger" parent="." instance=ExtResource("8_gvja8")]
+position = Vector2(1461, 14)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="MC" type="MarginContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_right = 24
+
+[node name="Warning" parent="UI/MC" instance=ExtResource("9_m1o7v")]
+layout_mode = 2
+
+[node name="Status" parent="UI/MC" instance=ExtResource("13_edkrd")]
+layout_mode = 2
+
+[node name="GameOver" parent="UI/MC" instance=ExtResource("10_3586x")]
+visible = false
+z_index = 80
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MC"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Label2" type="Label" parent="UI/MC/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/MC/VBoxContainer"]
+layout_mode = 2
+text = "(R) - Give Up
+(E) - Interact
+(Space) - Push
+(Esc) - Main Menu
+Music: Pennywind
+"
+label_settings = SubResource("LabelSettings_jf0ra")
+
+[node name="NPCMarker" type="Marker2D" parent="."]
+position = Vector2(722, 667)
+
+[node name="ProgressionScene" parent="." instance=ExtResource("14_bsqcq")]
+visible = false
+z_index = 100
+
+[node name="ZesMarker" type="Marker2D" parent="."]
+position = Vector2(644, 2)
+
+[node name="ZeusContainer" type="Node2D" parent="."]
+position = Vector2(654, 0)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_jf0ra")
+autoplay = true

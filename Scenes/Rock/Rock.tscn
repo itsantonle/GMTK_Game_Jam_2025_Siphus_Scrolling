@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://xhyhmu4whyiv"]
+
+[ext_resource type="Script" uid="uid://crhgntp67t644" path="res://Scenes/Rock/Rock.gd" id="1_ups20"]
+[ext_resource type="Texture2D" uid="uid://btyyvfet3x5ce" path="res://assets/sprites/ball;.png" id="1_wgh4w"]
+[ext_resource type="AudioStream" uid="uid://d21eeit5wm4cs" path="res://assets/Music/425038__kernschall__sfx_stone_calcit_deadsea_movement_rocking-6-189.wav" id="3_43wtq"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ups20"]
+rough = true
+bounce = 0.17
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wgh4w"]
+radius = 10.3825
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ups20"]
+radius = 153.16
+
+[node name="RigidBody2D" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 5
+mass = 5.0
+physics_material_override = SubResource("PhysicsMaterial_ups20")
+script = ExtResource("1_ups20")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_wgh4w")
+offset = Vector2(21, 15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 0
+scale = Vector2(14.64, 14.64)
+shape = SubResource("CircleShape2D_wgh4w")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_43wtq")
+volume_db = 24.0
+
+[node name="SoundTrigger" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SoundTrigger"]
+shape = SubResource("CircleShape2D_ups20")
+debug_color = Color(0.911315, 0.199829, 0.548742, 0.42)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
